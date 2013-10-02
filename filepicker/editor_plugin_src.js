@@ -10,15 +10,17 @@
     init : function(ed, url) {
       // Register the command
       ed.addCommand('bpFilepicker', function() {
-        filepicker.pick({ 'mimetype': 'image/*' }, function(FPFile) {
-          var imgHTML = tinymce.activeEditor.dom.createHTML('img', {
-            src: FPFile.url,
-            style: 'max-width: 930px;'
-          });
-          ed.execCommand('mceInsertContent', false, imgHTML, {skip_undo : 1});
-          ed.undoManager.add();
+            filepicker.pick({ 'mimetype': 'video/mp4' }, function(FPFile) {
+                var videoHTML = tinymce.activeEditor.dom.createHTML('video', {
+                    src: FPFile.url,
+                    controls: "controls",
+                    class: "media-element",
+                    type: "video/mp4"
+                });
+                ed.execCommand('mceInsertContent', false, videoHTML, {skip_undo : 1});
+                ed.undoManager.add();
+            });
         });
-      });
 
       // Register example button
       ed.addButton('filepicker', {
