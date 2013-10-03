@@ -1,3 +1,9 @@
+Altered specifically for Backstop. 
+-------------
+
+The changes probably won't be useful to anyone else, as we mostly remove functionality and fire an event which we pick up elsewhere.  But if you want it, have at it.
+
+
 tinymce-filepicker
 ==================
 

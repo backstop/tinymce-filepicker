@@ -8,25 +8,12 @@
 (function() {
   tinymce.create('tinymce.plugins.FilepickerPlugin', {
     init : function(ed, url) {
-      // Register the command
-      ed.addCommand('bpFilepicker', function() {
-            filepicker.pick({ 'mimetype': 'video/mp4' }, function(FPFile) {
-                var videoHTML = tinymce.activeEditor.dom.createHTML('video', {
-                    src: FPFile.url,
-                    controls: "controls",
-                    class: "media-element",
-                    type: "video/mp4"
-                });
-                ed.execCommand('mceInsertContent', false, videoHTML, {skip_undo : 1});
-                ed.undoManager.add();
-            });
-        });
-
-      // Register example button
       ed.addButton('filepicker', {
-        title : 'Insert an image using Filepicker.io',
-        cmd : 'bpFilepicker',
-        image : url + '/img/fp-icon.png'
+        title : 'Insert an mp4, viewing a video on the admin site will only work in Chrome',
+        image : url + '/img/fp-icon.png',
+        onclick : function( event ) {
+          $( event.current_target ).trigger( 'uploadFileToCloud' );
+        }
       });
     },
 
