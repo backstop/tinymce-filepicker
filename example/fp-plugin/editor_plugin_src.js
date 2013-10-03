@@ -12,7 +12,7 @@
         title : 'Insert an mp4, viewing a video on the admin site will only work in Chrome',
         image : url + '/img/fp-icon.png',
         onclick : function( event ) {
-          $( event.current_target ).trigger( 'uploadFileToCloud' );
+          $( document ).trigger( 'uploadFileToCloud' );
         }
       });
     },
